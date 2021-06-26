@@ -1,0 +1,19 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+}
+
+.container .top {
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border: 0.5px solid #fff;
+}
+
+.container .bottom {
+    padding-left: 10px;
+    border: 0.5px solid grey;
+    background-color: lightgrey;
+}
