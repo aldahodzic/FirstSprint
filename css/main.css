@@ -1,3 +1,16 @@
+.log {
+    padding: 10px;
+}
+
+.login {
+    padding: 10px;
+    display: block;
+}
+
+button {
+    font-size: 24px;
+}
+
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -16,4 +29,12 @@
     padding-left: 10px;
     border: 0.5px solid grey;
     background-color: lightgrey;
+}
+
+.form {
+    padding: 10px;
+}
+
+input {
+    font-size: 24px;
 }

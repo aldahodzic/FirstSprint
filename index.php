@@ -1,3 +1,8 @@
+<?php
+    require_once("./form.php");
+    require_once("./login.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +14,15 @@
     <link rel="stylesheet" href="./css/reset.css">
 </head>
 <body>
+    <div class="log">
+        <h4><?php print($msg) ?></h4>
+        <a href="./index.php?action=logout">Logout</a>
+    </div>
+    <form class="login" action="./index.php" method="POST">
+        <input type="text" name="username" placeholder="username = Rolandas" required><br>
+        <input type="password" name="password" placeholder="password = 1234" required><br>
+        <button type="submit" name="login">Login</button>
+    </form>
     <div class="container">
         <p class="top">Type</p>
         <p class="top">Name</p>
@@ -16,5 +30,9 @@
             require_once("./files.php");
         ?>
     </div>
+    <form class="form" action="./index.php" method="POST">
+        <input type="text" name="newDir" placeholder="New directory">
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
