@@ -1,4 +1,4 @@
-# Authentication
+# File system browser
 This project is for educational purposes only.
 
 ## Project features
