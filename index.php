@@ -1,6 +1,14 @@
 <?php
-    require_once("./form.php");
-    require_once("./login.php");
+    if($_SESSION["logged_in"]) {
+        header("Location: " . "./components/login.php");
+    }
+
+    require_once("./components/mkdir.php");
+
+    $path = "./" . $_GET["path"];
+    if($_GET["delete"]) {
+        unlink($path . "/" . $_GET["delete"]);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -14,25 +22,31 @@
     <link rel="stylesheet" href="./css/reset.css">
 </head>
 <body>
-    <div class="log">
-        <h4><?php print($msg) ?></h4>
-        <a href="./index.php?action=logout">Logout</a>
-    </div>
-    <form class="login" action="./index.php" method="POST">
-        <input type="text" name="username" placeholder="username = Rolandas" required><br>
-        <input type="password" name="password" placeholder="password = 1234" required><br>
-        <button type="submit" name="login">Login</button>
-    </form>
-    <div class="container">
-        <p class="top">Type</p>
-        <p class="top">Name</p>
-        <?php
-            require_once("./files.php");
-        ?>
-    </div>
-    <form class="form" action="./index.php" method="POST">
-        <input type="text" name="newDir" placeholder="New directory">
-        <input type="submit" value="Submit">
-    </form>
+    <section class="table">
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php require_once("./components/table.php") ?>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="bottom">
+        <div class="container">
+            <form class="form" action="./index.php" method="POST">
+                <input type="text" name="newDir" placeholder="New directory">
+                <input type="submit" value="Submit">
+            </form>
+            <a class="logout" href="./index.php?action=logout">Logout</a>
+        </div>
+    </section>
 </body>
 </html>
