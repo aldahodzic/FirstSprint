@@ -8,7 +8,7 @@
             $_SESSION["logged_in"] = true;
             $_SESSION["timeout"] = time();
             $_SESSION["username"] = $_POST["username"];
-            header("Location: " . "../index.php");
+            header("Location: ../index.php");
         } else {
             $msg = "Wrong user name or password";
         }

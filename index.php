@@ -1,6 +1,6 @@
 <?php
-    if($_SESSION["logged_in"]) {
-        header("Location: " . "./components/login.php");
+    if($_SESSION["logged_in"] !== true) {
+        // header("Location: ./components/login.php");
     }
 
     require_once("./components/mkdir.php");
