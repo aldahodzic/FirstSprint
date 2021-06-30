@@ -4,11 +4,7 @@
     }
 
     require_once("./components/mkdir.php");
-
-    $path = "./" . $_GET["path"];
-    if($_GET["delete"]) {
-        unlink($path . "/" . $_GET["delete"]);
-    }
+    require_once("./components/delete.php");
 ?>
 
 <!DOCTYPE html>
