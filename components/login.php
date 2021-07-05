@@ -1,6 +1,13 @@
 <?php
     session_start();
 
+    // Logout
+    if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+        unset($_SESSION['username']);
+        unset($_SESSION['password']);
+        unset($_SESSION['logged_in']);
+    }
+
     // Login
     $msg = "";
     if(isset($_POST["login"]) && !empty($_POST["username"]) && !empty($_POST["password"])) {
@@ -12,13 +19,6 @@
         } else {
             $msg = "Wrong user name or password";
         }
-    }
-
-    // Logout
-    if (isset($_GET['action']) && $_GET['action'] == 'logout') {
-        unset($_SESSION['username']);
-        unset($_SESSION['password']);
-        unset($_SESSION['logged_in']);
     }
 ?>
 
@@ -36,7 +36,7 @@
     <section class="login">
         <div class="container">
             <h4><?php print($msg) ?></h4>
-            <form class="login" action="./login.php" method="POST">
+            <form class="login" method="POST">
                 <input type="text" name="username" placeholder="username = Rolandas" required><br>
                 <input type="password" name="password" placeholder="password = 1234" required><br>
                 <button type="submit" name="login">Login</button>

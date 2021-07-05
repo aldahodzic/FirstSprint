@@ -8,10 +8,6 @@ input {
     padding: 20px;
 }
 
-button {
-    font-size: 24px;
-}
-
 .table > .container {
     padding: 20px;
     width: 100%;
@@ -20,6 +16,7 @@ button {
 table {
     width: 100%;
     border: 1px solid grey;
+    font-size: 24px;
 }
 
 th {
@@ -37,4 +34,13 @@ tbody {
 
 .logout {
     font-size: 24px;
+}
+
+button {
+    font-size: 24px;
+    width: 24%;
+}
+
+button > a {
+    text-decoration: none;
 }

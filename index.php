@@ -1,10 +1,14 @@
 <?php
+    session_start();
+
     if($_SESSION["logged_in"] !== true) {
-        // header("Location: ./components/login.php");
+        header("Location: ./components/login.php");
     }
 
     require_once("./components/mkdir.php");
     require_once("./components/delete.php");
+    require_once("./components/upload.php");
+    require_once("./components/download.php");
 ?>
 
 <!DOCTYPE html>
@@ -37,11 +41,19 @@
 
     <section class="bottom">
         <div class="container">
-            <form class="form" action="./index.php" method="POST">
+            <button type="button" onclick="history.back();">Back</button>
+            <form action = "" method="POST" enctype = "multipart/form-data">
+                <input type="file" name="image" id="img" style="display:none;">
+                <button style="display: block; width: 24%" type="button">
+                    <label for="img" style="display: block; width: 100%">Choose file</label>
+                </button>
+                <button style="display: block; width: 24%" type="submit">Upload file</button>
+            </form>
+            <form class="form" method="POST">
                 <input type="text" name="newDir" placeholder="New directory">
                 <input type="submit" value="Submit">
             </form>
-            <a class="logout" href="./index.php?action=logout">Logout</a>
+            <a class="logout" href="./components/login.php">Logout</a>
         </div>
     </section>
 </body>
